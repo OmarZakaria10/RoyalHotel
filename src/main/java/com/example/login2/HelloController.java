@@ -51,7 +51,7 @@ public class HelloController {
             while (queryResult.next()){
                 if (queryResult.getInt(1)==1){
                     HelloApplication m = new HelloApplication();
-                    m.changeScene("gui.fxml");
+                    m.changeScene("gui.fxml",550,400);
                 }
             }
         }

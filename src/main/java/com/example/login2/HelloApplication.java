@@ -19,11 +19,11 @@ public class HelloApplication extends Application {
         primaryStage. setScene (new Scene (root, 550 ,400));
         primaryStage.show();
     }
-    public void changeScene(String fxml) throws IOException{
-        Parent pane =FXMLLoader.load(getClass().getResource(fxml));
+    public void changeScene(String fxml,int x ,int y) throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.setScene(new Scene(pane, x, y));
         stg.getScene().setRoot(pane);
     }
-
     public static void main (String [] args) {launch(args) ;
     }
 

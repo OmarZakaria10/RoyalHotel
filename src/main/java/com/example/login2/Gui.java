@@ -25,7 +25,7 @@ public class Gui extends HelloController
     @FXML
     void checkin_click(ActionEvent event) throws IOException {
         HelloApplication z = new HelloApplication();
-        z.changeScene("check in.fxml");
+        z.changeScene("check in.fxml",800,640);
 
     }
 
