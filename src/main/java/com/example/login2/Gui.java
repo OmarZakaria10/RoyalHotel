@@ -28,8 +28,10 @@ public class Gui extends HelloController
         z.changeScene("check in.fxml",800,640);
 
     }
-
-
+    public void orderfood_click(ActionEvent event) throws IOException {
+        HelloApplication o = new HelloApplication();
+        o.changeScene("food.fxml",600,400);
+    }
 
 
 
