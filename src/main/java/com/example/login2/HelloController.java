@@ -46,12 +46,14 @@ public class HelloController {
         System.out.println("sucess");
         String verifyLogin= "SELECT count(1) FROM users WHERE username = '" +username +"' AND password = '" + passwordfield.getText() +"'";
         try {
+            int counter=0;
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
             while (queryResult.next()){
+
                 if (queryResult.getInt(1)==1){
                     HelloApplication m = new HelloApplication();
-                    m.changeScene("gui.fxml",550,400);
+                    m.changeScene("gui.fxml",589,493);
                 }
             }
         }

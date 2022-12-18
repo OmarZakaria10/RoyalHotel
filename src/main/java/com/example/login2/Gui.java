@@ -25,21 +25,22 @@ public class Gui extends HelloController
     @FXML
     void checkin_click(ActionEvent event) throws IOException {
         HelloApplication z = new HelloApplication();
-        z.changeScene("check in.fxml",800,640);
+        z.changeScene("check in.fxml",833,607);
 
     }
     public void orderfood_click(ActionEvent event) throws IOException {
         HelloApplication o = new HelloApplication();
-        o.changeScene("food.fxml",600,400);
+        o.changeScene("food.fxml",600,607);
     }
 
 
 
     @javafx.fxml.FXML
     public void initialize() throws Exception {
-        welcome.setText("Welcome Back "+username);
+        welcome.setText("Welcome "+username);
     }
 
 
-
+    public void admin_click(ActionEvent actionEvent) {
+    }
 }

@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         stg = primaryStage;
-        //primaryStage.setResizable(false);
+        primaryStage.setResizable(false);
         Parent root = FXMLLoader. load (getClass ().getResource (  "hello-view.fxml"));
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Royal Hotel") ;

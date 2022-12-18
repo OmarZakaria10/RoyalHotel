@@ -10,22 +10,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="555.0" style="-fx-border-width: 8px; -fx-border-color: #000641;" styleClass="545D82" stylesheets="@hello-view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login2.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="555.0" styleClass="545D82" stylesheets="@hello-view.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login2.HelloController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="221.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="384.0" prefWidth="248.0" style="-fx-background-color: 0;">
+            <AnchorPane layoutY="10.0" prefHeight="384.0" prefWidth="248.0" style="-fx-background-color: 0;">
                <children>
-                  <TextField fx:id="usernamefield" layoutX="34.0" layoutY="143.0" prefHeight="26.0" prefWidth="180.0" promptText="USERNAME">
+                  <TextField fx:id="usernamefield" layoutX="34.0" layoutY="179.0" prefHeight="26.0" prefWidth="180.0" promptText="USERNAME">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font></TextField>
-                  <PasswordField fx:id="passwordfield" layoutX="35.0" layoutY="192.0" prefHeight="26.0" prefWidth="184.0" promptText="PASSWORD" />
-                  <Button fx:id="cancel" alignment="CENTER" contentDisplay="TOP" layoutX="44.0" layoutY="315.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #000641; -fx-border-style: rounded;" text="CANCEL" textFill="WHITE">
+                  <PasswordField fx:id="passwordfield" layoutX="35.0" layoutY="220.0" prefHeight="26.0" prefWidth="184.0" promptText="PASSWORD" />
+                  <Button fx:id="cancel" alignment="CENTER" contentDisplay="TOP" layoutX="45.0" layoutY="327.0" mnemonicParsing="false" onAction="#close" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #000641; -fx-border-style: rounded;" text="CANCEL" textFill="WHITE">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font></Button>
-                  <Label fx:id="wrong" layoutX="25.0" layoutY="87.0" prefHeight="31.0" prefWidth="204.0" textFill="#0b0275">
+                  <Label fx:id="wrong" layoutX="22.0" layoutY="87.0" prefHeight="31.0" prefWidth="204.0" textFill="#0b0275">
                      <font>
                         <Font name="Leelawadee UI Semilight" size="15.0" />
                      </font></Label>
@@ -34,19 +34,24 @@
                         <Font name="Times New Roman" size="29.0" />
                      </font>
                   </Label>
-                  <Button fx:id="but1" alignment="CENTER" contentDisplay="TOP" layoutX="44.0" layoutY="267.0" mnemonicParsing="false" onAction="#click" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #000641; -fx-border-style: dashed;" text="LOGIN" textFill="WHITE">
+                  <Button fx:id="but1" alignment="CENTER" contentDisplay="TOP" layoutX="44.0" layoutY="279.0" mnemonicParsing="false" onAction="#click" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #000641; -fx-border-style: dashed;" text="LOGIN" textFill="WHITE">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="57.0" fitWidth="79.0" layoutX="96.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/hotel.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children></AnchorPane>
    </left>
    <right>
-      <ImageView fitHeight="386.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+      <ImageView fitHeight="403.0" fitWidth="308.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@enter.png" />
+            <Image url="@imgs/enter.png" />
          </image>
       </ImageView>
    </right>
