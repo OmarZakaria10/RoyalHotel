@@ -18,7 +18,7 @@ public class DbConnect {
     private static String HOST = "127.0.0.1";
 
     private static int PORT = 3306;
-    private static String DB_NAME = "hotelmanager";
+    private static String DB_NAME = "hotel.manager";
     private static String USERNAME = "root";
     private static final String url = "jdbc:mysql://localhost:3306/"+DB_NAME;
     private static String PASSWORD = "";

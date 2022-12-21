@@ -15,6 +15,7 @@ import java.sql.Statement;
 
 public class HelloController {
     public static String username;
+    public static String password;
     @FXML
     private Button but1;
 
@@ -34,6 +35,7 @@ public class HelloController {
     @FXML
     void click(ActionEvent event) throws IOException, SQLException {
         username=usernamefield.getText();
+        password=passwordfield.getText();
         /*if (username.getText().toString().equals("Omar") && password.getText().toString().equals("root")){
 
      wrong.setText("Hello again "+username.getText()+"...!");
@@ -44,7 +46,7 @@ public class HelloController {
         DbConnect connectNOW =new DbConnect();
         Connection connectDB =connectNOW.getConnect();
         System.out.println("sucess");
-        String verifyLogin= "SELECT count(1) FROM users WHERE username = '" +username +"' AND password = '" + passwordfield.getText() +"'";
+        String verifyLogin= "SELECT count(1) FROM users WHERE username = '" +username +"' AND password = '" + password +"'";
         try {
             int counter=0;
             Statement statement = connectDB.createStatement();

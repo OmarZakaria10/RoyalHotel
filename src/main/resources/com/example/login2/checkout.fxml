@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #160A34;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login2.CheckoutController">
+   <children>
+      <Label layoutX="31.0" layoutY="180.0" text="Room Number" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField fx:id="roomID_textfield" layoutX="327.0" layoutY="180.0" prefHeight="39.0" prefWidth="211.0" promptText="room ID" />
+      <Button fx:id="checkoutbutton" layoutX="425.0" layoutY="300.0" mnemonicParsing="false" onAction="#checkoutbutton_click" prefHeight="54.0" prefWidth="158.0" style="-fx-background-color: #642031;" text="Check Out" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

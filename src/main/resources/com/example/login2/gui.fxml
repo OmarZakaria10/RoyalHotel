@@ -19,7 +19,7 @@
             <Font name="Rage Italic" size="46.0" />
          </font>
       </Button>
-      <Button fx:id="checkout" layoutX="302.0" layoutY="136.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="257.0" style="-fx-background-color: #2196f3;" text="Check Out" textFill="WHITE">
+      <Button fx:id="checkout" layoutX="302.0" layoutY="136.0" mnemonicParsing="false" onAction="#checkout_click" prefHeight="101.0" prefWidth="257.0" style="-fx-background-color: #2196f3;" text="Check Out" textFill="WHITE">
          <font>
             <Font name="Rage Italic" size="46.0" />
          </font>

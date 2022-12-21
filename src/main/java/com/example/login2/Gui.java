@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Gui extends HelloController
 {
@@ -41,6 +44,31 @@ public class Gui extends HelloController
     }
 
 
-    public void admin_click(ActionEvent actionEvent) {
+    public void admin_click(ActionEvent actionEvent) throws IOException {
+        DbConnect connectNOW = new DbConnect();
+        Connection connectDB = connectNOW.getConnect();
+        try {
+            int counter = 0;
+            PreparedStatement st;
+            st = connectDB.prepareStatement("SELECT privilege FROM users WHERE username =? AND password =?");
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet queryResult = st.executeQuery();
+            while (queryResult.next() == true) {
+                String Privilrge = queryResult.getString("privilege");
+                if (Privilrge.equals("admin")){
+                HelloApplication A=new HelloApplication();
+                A.changeScene("forAdmins.fxml",847,493);
+            }
+            else welcome.setText("You are not admin");
+            }
+        } catch (Exception e) {
+        }
+
     }
+    public void checkout_click(ActionEvent event)throws IOException{
+        HelloApplication co=new HelloApplication();
+        co.changeScene("checkout.fxml",600,400);
+    }
+
 }
