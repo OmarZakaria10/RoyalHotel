@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2022 at 08:58 PM
+-- Generation Time: Dec 21, 2022 at 07:23 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotelmanager`
+-- Database: `hotel.manager`
 --
 
 -- --------------------------------------------------------
@@ -158,7 +158,8 @@ INSERT INTO `customers` (`name`, `room_ID`, `nationality`, `nationalID`, `addres
 ('123', 11, '123', '123', '123', '213', '123', '123'),
 ('123', 11, '123', '123', '123', '213', '123', '123'),
 ('ZEKO', 11, 'egyptian', '123', '123', '123', 'cairo', '123'),
-('taha', 12, 'talbawy', '123', '123', '12311', 'cairo', '123');
+('taha', 12, 'talbawy', '123', '123', '12311', 'cairo', '123'),
+('abogoda', 13, 'egyptian', '123', '123', '123', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,6 @@ INSERT INTO `customers` (`name`, `room_ID`, `nationality`, `nationalID`, `addres
 --
 
 CREATE TABLE `food` (
-  `ID` int(11) NOT NULL,
   `RoomID` varchar(3) NOT NULL,
   `breakfast` tinyint(1) NOT NULL,
   `lunch` tinyint(1) NOT NULL,
@@ -178,8 +178,32 @@ CREATE TABLE `food` (
 -- Dumping data for table `food`
 --
 
-INSERT INTO `food` (`ID`, `RoomID`, `breakfast`, `lunch`, `dinner`) VALUES
-(1, '5', 1, 1, 0);
+INSERT INTO `food` (`RoomID`, `breakfast`, `lunch`, `dinner`) VALUES
+('1', 0, 0, 0),
+('2', 0, 0, 0),
+('3', 0, 0, 0),
+('4', 0, 0, 0),
+('5', 0, 0, 0),
+('6', 0, 0, 0),
+('7', 0, 0, 0),
+('8', 0, 0, 0),
+('9', 0, 0, 0),
+('10', 0, 0, 0),
+('11', 0, 0, 0),
+('12', 1, 0, 1),
+('13', 1, 1, 1),
+('14', 0, 0, 0),
+('15', 0, 0, 0),
+('16', 0, 0, 0),
+('17', 0, 0, 0),
+('18', 0, 0, 0),
+('19', 0, 0, 0),
+('20', 0, 0, 0),
+('21', 0, 0, 0),
+('22', 0, 0, 0),
+('23', 0, 0, 0),
+('24', 0, 0, 0),
+('25', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -212,7 +236,7 @@ INSERT INTO `rooms` (`roomID`, `roomType`, `isBooked`, `num_of_Days`, `owner`) V
 (10, 'VIP', 'false', 0, 'false'),
 (11, 'Normal', 'true', 5, 'ZEKO'),
 (12, 'Normal', 'true', 4, 'taha'),
-(13, 'Normal', 'false', 0, 'false'),
+(13, 'Normal', 'true', 4, 'abogoda'),
 (14, 'Normal', 'false', 0, 'false'),
 (15, 'Normal', 'false', 0, 'false'),
 (16, 'Normal', 'false', 0, 'false'),
@@ -256,7 +280,7 @@ INSERT INTO `users` (`ID`, `username`, `password`, `privilege`) VALUES
 (4, 'akwah', 'akwoha', 'user'),
 (5, 'mohammed', 'me7o', 'user'),
 (6, 'Kamel', 'kamola', 'user'),
-(7, 'abofahd', 'ghadod', 'user');
+(7, '3m ashraf', 'fav', 'user');
 
 --
 -- Indexes for dumped tables
@@ -289,7 +313,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
