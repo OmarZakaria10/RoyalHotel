@@ -2,19 +2,15 @@ package com.example.login2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Gui extends HelloController
-{
+public class Gui extends HelloController {
     @FXML
     private Button checkin;
 
@@ -25,24 +21,23 @@ public class Gui extends HelloController
     private Button rooms;
     @FXML
     public Label welcome;
+
     @FXML
     void checkin_click(ActionEvent event) throws IOException {
         HelloApplication z = new HelloApplication();
-        z.changeScene("check in.fxml",833,607);
+        z.changeScene("check in.fxml", 833, 607);
 
     }
+
     public void orderfood_click(ActionEvent event) throws IOException {
         HelloApplication o = new HelloApplication();
-        o.changeScene("food.fxml",600,607);
+        o.changeScene("food.fxml", 600, 400);
     }
-
-
 
     @javafx.fxml.FXML
     public void initialize() throws Exception {
-        welcome.setText("Welcome "+username);
+        welcome.setText("Welcome " + username);
     }
-
 
     public void admin_click(ActionEvent actionEvent) throws IOException {
         DbConnect connectNOW = new DbConnect();
@@ -56,19 +51,19 @@ public class Gui extends HelloController
             ResultSet queryResult = st.executeQuery();
             while (queryResult.next() == true) {
                 String Privilrge = queryResult.getString("privilege");
-                if (Privilrge.equals("admin")){
-                HelloApplication A=new HelloApplication();
-                A.changeScene("forAdmins.fxml",847,493);
-            }
-            else welcome.setText("You are not admin");
+                if (Privilrge.equals("admin")) {
+                    HelloApplication A = new HelloApplication();
+                    A.changeScene("forAdmins.fxml", 847, 493);
+                } else welcome.setText("You are not admin");
             }
         } catch (Exception e) {
         }
 
     }
-    public void checkout_click(ActionEvent event)throws IOException{
-        HelloApplication co=new HelloApplication();
-        co.changeScene("checkout.fxml",600,400);
+
+    public void checkout_click(ActionEvent event) throws IOException {
+        HelloApplication co = new HelloApplication();
+        co.changeScene("checkout.fxml", 670, 409);
     }
 
 }

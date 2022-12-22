@@ -24,44 +24,44 @@ public class foodcontroller {
     private Button food_button;
     @FXML
     private TextField roomIDFld;
-    int bf=0,l=0,d=0;
+    int bf = 0, l = 0, d = 0;
 
     public void breakfast_checkbox_marked(MouseEvent mouseEvent) {
-        bf=1;
+        bf = 1;
     }
 
     public void lunch_checkbox_marked(MouseEvent mouseEvent) {
-        l=1;
+        l = 1;
     }
 
     public void dinner_checkbox_marked(MouseEvent mouseEvent) {
-        d=1;
+        d = 1;
     }
+
     @FXML
     void food_button_clicked(ActionEvent e) throws IOException, SQLException {
-        String room_id= roomIDFld.getText();
-        DbConnect connectNOW =new DbConnect();
-        Connection connectDB =connectNOW.getConnect();
-
-        //String addfood= "INSERT INTO count(1) FROM `food` (`ID`, `breakfast`, `lunch`, `dinner`) VALUES ('"+bf+"', '"+l+"', '"+d+"')";
-        try{
+        String room_id = roomIDFld.getText();
+        DbConnect connectNOW = new DbConnect();
+        Connection connectDB = connectNOW.getConnect();
+        try {
             PreparedStatement st;
-            st= connectDB.prepareStatement("INSERT INTO food (`RoomID`,`breakfast`, `lunch`, `dinner`) VALUES (?,?,?,?)");
-            st.setString(1,room_id);
-            st.setInt(2,bf);
-            st.setInt(3,l);
-            st.setInt(4,d);
-            int status= st.executeUpdate();
-            //Statement statement = connectDB.createStatement();
-            //ResultSet queryResult = st.executeQuery(st);
+            st = connectDB.prepareStatement("UPDATE food SET breakfast = ?, lunch = ?, dinner = ? WHERE roomID=" + room_id);
+            st.setInt(1, bf);
+            st.setInt(2, l);
+            st.setInt(3, d);
+            int status = st.executeUpdate();
             HelloApplication m = new HelloApplication();
-            m.changeScene("gui.fxml",550,400);
-        }
-        catch (Exception error)
-        {
+            m.changeScene("gui.fxml", 589, 493);
+        } catch (Exception error) {
             error.printStackTrace();
         }
     }
 
-
+    public void back_to_previous() throws IOException {
+        HelloApplication m = new HelloApplication();
+        m.changeScene("gui.fxml", 589, 493);
+    }
 }
+
+
+

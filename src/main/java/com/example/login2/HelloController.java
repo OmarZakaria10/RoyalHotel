@@ -7,8 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.sql.Connection;
+
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,32 +35,25 @@ public class HelloController {
 
     @FXML
     void click(ActionEvent event) throws IOException, SQLException {
-        username=usernamefield.getText();
-        password=passwordfield.getText();
-        /*if (username.getText().toString().equals("Omar") && password.getText().toString().equals("root")){
-
-     wrong.setText("Hello again "+username.getText()+"...!");
-            m.changeScene("gui.fxml");
-        }
-        else wrong.setText("Wrong username or password");*/
-        //System.out.println(usernamefield.getText());
-        DbConnect connectNOW =new DbConnect();
-        Connection connectDB =connectNOW.getConnect();
-        System.out.println("sucess");
-        String verifyLogin= "SELECT count(1) FROM users WHERE username = '" +username +"' AND password = '" + password +"'";
+        username = usernamefield.getText();
+        password = passwordfield.getText();
+        DbConnect connectNOW = new DbConnect();
+        Connection connectDB = connectNOW.getConnect();
+        String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + username + "' AND password = '" + password + "'";
         try {
-            int counter=0;
+            int counter = 0;
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
-            while (queryResult.next()){
+            while (queryResult.next()) {
 
-                if (queryResult.getInt(1)==1){
+                if (queryResult.getInt(1) == 1) {
+                    System.out.println(username + " just logged \n");
                     HelloApplication m = new HelloApplication();
-                    m.changeScene("gui.fxml",589,493);
+                    m.changeScene("gui.fxml", 589, 493);
                 }
+                else wrong.setText("Wrong username or password");
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -68,7 +62,8 @@ public class HelloController {
     void close(ActionEvent event) {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
-    }}
+    }
+}
 
 
 

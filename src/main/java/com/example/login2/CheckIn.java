@@ -8,7 +8,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class CheckIn {
     @FXML
@@ -71,7 +73,8 @@ public class CheckIn {
     @FXML
     void Back_click(ActionEvent event) throws IOException {
         HelloApplication x = new HelloApplication();
-        x.changeScene("gui.fxml",589,493);;
+        x.changeScene("gui.fxml", 589, 493);
+        ;
 
     }
 
@@ -149,7 +152,7 @@ public class CheckIn {
             Connection con3 = connectNOW3.getConnect();
             PreparedStatement st2;
             st2 = con3.prepareStatement("UPDATE rooms SET roomType = ?, isBooked = ?, num_of_Days = ?, owner = ? WHERE roomID=?");
-            st2.setString(1,room_Type);
+            st2.setString(1, room_Type);
             st2.setString(2, "true");
             st2.setInt(3, numofDays);
             st2.setString(4, name);
@@ -162,7 +165,8 @@ public class CheckIn {
 
         }
         HelloApplication g = new HelloApplication();
-        g.changeScene("gui.fxml",589,493);;
+        g.changeScene("gui.fxml", 589, 493);
+        ;
     }
 }
 
