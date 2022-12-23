@@ -105,11 +105,8 @@ public class CheckIn {
         String city = cityFld.getText();
         String phone = phoneFld.getText();
         String email = emailFld.getText();
-        //int phoneNum= Integer.parseInt(phone);
-        //int idNum=Integer.parseInt(ID);
         String Days = numofDaysFld.getText();
         int numofDays = Integer.parseInt(Days);
-        //int nationalID= Integer.parseInt(ID);
         DbConnect connectNOW = new DbConnect();
         Connection connectDB = connectNOW.getConnect();
         try {
@@ -123,6 +120,7 @@ public class CheckIn {
                 if (counter == 1) break;
                 roomnumber = queryResult.getInt("roomID");
                 System.out.println(roomnumber);
+                roomIDFld.setText(String.valueOf(roomnumber));
                 counter++;
             }
         } catch (Exception e) {
@@ -164,8 +162,7 @@ public class CheckIn {
             e.printStackTrace();
 
         }
-        HelloApplication g = new HelloApplication();
-        g.changeScene("gui.fxml", 589, 493);
+
         ;
     }
 }
