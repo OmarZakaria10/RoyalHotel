@@ -2,6 +2,7 @@ package com.example.login2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -72,12 +73,16 @@ public class ForAdmins {
             int status = st3.executeUpdate();
             HelloApplication x = new HelloApplication();
             x.changeScene("gui.fxml", 589, 493);
-            ;
+
         } catch (Exception e) {
             e.printStackTrace();
 
         }
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Message");
+        alert.setHeaderText("The process");
+        alert.setContentText("Done.");
+        alert.showAndWait();
     }
 
     @FXML
@@ -105,11 +110,16 @@ public class ForAdmins {
             int status = st3.executeUpdate();
             HelloApplication x = new HelloApplication();
             x.changeScene("gui.fxml", 589, 493);
-            ;
+
         } catch (Exception e) {
             e.printStackTrace();
 
         }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Message");
+        alert.setHeaderText("The process");
+        alert.setContentText("Done.");
+        alert.showAndWait();
     }
 
 }

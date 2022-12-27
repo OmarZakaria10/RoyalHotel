@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.scene.control.Alert;
 
 public class HelloController {
     public static String username;
@@ -51,10 +52,15 @@ public class HelloController {
                     HelloApplication m = new HelloApplication();
                     m.changeScene("gui.fxml", 589, 493);
                 }
-                else wrong.setText("Wrong username or password");
+                else {wrong.setText("Wrong username or password");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Wrong username or password");
+                    alert.showAndWait();
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+        e.printStackTrace();
         }
     }
 

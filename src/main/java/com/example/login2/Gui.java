@@ -2,15 +2,20 @@ package com.example.login2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
-public class Gui extends HelloController {
+import javafx.scene.control.Alert;
+
+public class Gui extends HelloController implements Initializable {
     @FXML
     private Button checkin;
 
@@ -34,10 +39,10 @@ public class Gui extends HelloController {
         o.changeScene("food.fxml", 600, 400);
     }
 
-    @javafx.fxml.FXML
-    public void initialize() throws Exception {
-        welcome.setText("Welcome " + username);
-    }
+  //  @javafx.fxml.FXML
+  // public void initialize() throws Exception {
+  //      welcome.setText("Welcome " + username);
+  //  }
 
     public void admin_click(ActionEvent actionEvent) throws IOException {
         DbConnect connectNOW = new DbConnect();
@@ -54,7 +59,13 @@ public class Gui extends HelloController {
                 if (Privilrge.equals("admin")) {
                     HelloApplication A = new HelloApplication();
                     A.changeScene("forAdmins.fxml", 847, 493);
-                } else welcome.setText("You are not admin");
+                } else{ welcome.setText("You are not admin");
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Not permited");
+                    alert.setContentText("you are not admin");
+                    alert.showAndWait();
+                }
             }
         } catch (Exception e) {
         }
@@ -66,4 +77,8 @@ public class Gui extends HelloController {
         co.changeScene("checkout.fxml", 670, 409);
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        welcome.setText("Welcome " + username);
+    }
 }

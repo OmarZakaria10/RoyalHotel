@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javafx.scene.control.Alert;
+
 
 public class CheckIn {
     @FXML
@@ -159,7 +161,11 @@ public class CheckIn {
 
         }
 
-        ;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Message");
+        alert.setHeaderText("The process");
+        alert.setContentText("Done.");
+        alert.showAndWait();
     }
 }
 

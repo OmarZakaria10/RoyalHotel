@@ -2,6 +2,7 @@ package com.example.login2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
@@ -52,6 +53,11 @@ public class foodcontroller {
             int status = st.executeUpdate();
             HelloApplication m = new HelloApplication();
             m.changeScene("gui.fxml", 589, 493);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Message");
+            alert.setHeaderText("The process");
+            alert.setContentText("Done.");
+            alert.showAndWait();
         } catch (Exception error) {
             error.printStackTrace();
         }
