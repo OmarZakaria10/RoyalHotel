@@ -41,17 +41,18 @@ public class ForAdmins {
     @FXML
     void delete_click(ActionEvent event) {
         try {
-            username_ = username1.getText();
-            password_ = password1.getText();
-            privilege_ = privilege1.getText();
+            users y=new users();
+            y.setUsername(username1.getText());
+            y.setPassword(password1.getText());
+            y.setPrivilege(privilege1.getText());
             DbConnect connectNOW = new DbConnect();
             Connection connectDB = connectNOW.getConnect();
             try {
 
                 PreparedStatement st;
                 st = connectDB.prepareStatement("SELECT ID FROM users WHERE username =? AND password =?");
-                st.setString(1, username_);
-                st.setString(2, password_);
+                st.setString(1, y.getUsername());
+                st.setString(2, y.getPassword());
                 ResultSet queryResult = st.executeQuery();
                 while (queryResult.next() == true) {
 
@@ -90,16 +91,17 @@ public class ForAdmins {
     @FXML
     void insert_click(ActionEvent event) {
         try {
-            username_ = username1.getText();
-            password_ = password1.getText();
-            privilege_ = privilege1.getText();
+            users y=new users();
+            y.setUsername(username1.getText());
+            y.setPassword(password1.getText());
+            y.setPrivilege(privilege1.getText());
             DbConnect connectNOW3 = new DbConnect();
             Connection con3 = connectNOW3.getConnect();
             PreparedStatement st3;
             st3 = con3.prepareStatement("INSERT INTO `users`(`username`, `password`, `privilege`) VALUES (?,?,?)");
-            st3.setString(1, username_);
-            st3.setString(2, password_);
-            st3.setString(3, privilege_);
+            st3.setString(1, y.getUsername());
+            st3.setString(2, y.getPassword());
+            st3.setString(3, y.getPrivilege());
             int status = st3.executeUpdate();
             HelloApplication x = new HelloApplication();
             x.changeScene("gui.fxml", 589, 493);

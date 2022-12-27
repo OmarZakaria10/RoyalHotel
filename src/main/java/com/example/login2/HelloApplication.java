@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
     private static Stage stg;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws IOException {
         stg = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

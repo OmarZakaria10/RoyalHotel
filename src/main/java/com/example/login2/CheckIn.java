@@ -20,9 +20,6 @@ public class CheckIn {
     private Button Back;
 
     @FXML
-    private TextField CVCFld;
-
-    @FXML
     private TextField IDFld;
 
     @FXML
@@ -30,9 +27,6 @@ public class CheckIn {
 
     @FXML
     private TextField addressFld;
-
-    @FXML
-    private TextField cardnumberFld;
 
     @FXML
     private TextField cityFld;
@@ -98,13 +92,15 @@ public class CheckIn {
 
     @FXML
     void confirm_click(ActionEvent event) throws IOException {
-        String name = nameFld.getText();
-        String nationality = nationalityFld.getText();
-        String ID = IDFld.getText();
-        String address = addressFld.getText();
-        String city = cityFld.getText();
-        String phone = phoneFld.getText();
-        String email = emailFld.getText();
+        customers x=new customers();
+
+        x.setName(nameFld.getText());
+        x.setNationality(nationalityFld.getText());
+        x.setID(IDFld.getText());
+        x.setAddress(addressFld.getText());
+        x.setCity(cityFld.getText());
+        x.setPhone( phoneFld.getText());
+        x.setEmail(emailFld.getText());
         String Days = numofDaysFld.getText();
         int numofDays = Integer.parseInt(Days);
         DbConnect connectNOW = new DbConnect();
@@ -130,14 +126,14 @@ public class CheckIn {
             Connection con2 = connectNOW2.getConnect();
             PreparedStatement st1;
             st1 = con2.prepareStatement("INSERT INTO `customers`(`name`, `room_ID`, `nationality`, `nationalID`, `address`, `phone`, `city`, `email`) VALUES (?,?,?,?,?,?,?,?)");
-            st1.setString(1, name);
+            st1.setString(1, x.getName());
             st1.setInt(2, roomnumber);
-            st1.setString(3, nationality);
-            st1.setString(4, ID);
-            st1.setString(5, address);
-            st1.setString(6, phone);
-            st1.setString(7, city);
-            st1.setString(8, email);
+            st1.setString(3, x.getNationality());
+            st1.setString(4, x.getID());
+            st1.setString(5, x.getAddress());
+            st1.setString(6, x.getPhone());
+            st1.setString(7, x.getCity());
+            st1.setString(8, x.getEmail());
 
             int status = st1.executeUpdate();
         } catch (Exception e) {
@@ -153,11 +149,11 @@ public class CheckIn {
             st2.setString(1, room_Type);
             st2.setString(2, "true");
             st2.setInt(3, numofDays);
-            st2.setString(4, name);
+            st2.setString(4, x.getName());
             st2.setInt(5, roomnumber);
             int status = st2.executeUpdate();
 
-            // int status = st.executeUpdate();
+
         } catch (Exception e) {
             e.printStackTrace();
 
