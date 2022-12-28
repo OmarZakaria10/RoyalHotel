@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javafx.scene.control.Alert;
-public class CheckoutController {
+public class CheckoutController extends HelloController{
     public static String roomnumber;
     @FXML
     private TextField roomID_textfield;

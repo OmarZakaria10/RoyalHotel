@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import javafx.scene.control.Alert;
 
 
-public class CheckIn {
+public class CheckIn extends HelloController{
     @FXML
     private TextField roomIDFld;
 

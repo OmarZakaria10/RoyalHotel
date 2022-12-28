@@ -2,6 +2,9 @@ package com.example.login2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -32,6 +35,7 @@ public class HelloController {
 
     @FXML
     private Label wrong;
+    private static Stage stg;
 
 
     @FXML
@@ -42,6 +46,7 @@ public class HelloController {
         Connection connectDB = connectNOW.getConnect();
         String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + username + "' AND password = '" + password + "'";
         try {
+
             int counter = 0;
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
@@ -68,6 +73,11 @@ public class HelloController {
     void close(ActionEvent event) {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
+    }
+    public void changeScene(String fxml, int x, int y) throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.setScene(new Scene(pane, x, y));
+        stg.getScene().setRoot(pane);
     }
 }
 

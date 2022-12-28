@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class foodcontroller {
+public class foodcontroller extends HelloController {
     //private boolean bf=false,l=false,d=false;
     @FXML
     private CheckBox breakfast_checkbox;
