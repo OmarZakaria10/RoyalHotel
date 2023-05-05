@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javafx.scene.control.Alert;
-public class CheckoutController extends HelloController{
+
+public class Checkout_Form extends Login_Form {
     public static String roomnumber;
     @FXML
     private TextField roomID_textfield;
@@ -95,7 +95,7 @@ public class CheckoutController extends HelloController{
     }
 
     public void back() throws IOException {
-        HelloApplication m = new HelloApplication();
+        Main m = new Main();
         m.changeScene("gui.fxml", 589, 493);
     }
 

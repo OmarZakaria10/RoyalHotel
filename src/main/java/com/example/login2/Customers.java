@@ -1,6 +1,6 @@
 package com.example.login2;
 
-public class customers {
+public class Customers {
     private String name ,nationality,ID,address,city,phone,email;
 
     public String getName() {

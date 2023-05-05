@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2022 at 07:30 PM
+-- Generation Time: Dec 28, 2022 at 09:40 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -43,7 +43,18 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`name`, `room_ID`, `nationality`, `nationalID`, `address`, `phone`, `city`, `email`) VALUES
-('Mostafa', 11, 'Egyptian', '*******', '**********', '***********', '**********', '************');
+('Mostafa', 11, 'Egyptian', '*******', '**********', '***********', '**********', '************'),
+('Mohammed', 11, '123', '123', '123', '123', '123', '123'),
+('Mohammed', 12, '123', '123', '123', '123', '123', '123'),
+('Ahmed', 11, '*******', '*********', '************', '8', '*********', '8*'),
+('Mostafa', 11, '123', '123', '123', '123', '123', '123'),
+('ahmed', 1, '123', '123', '123', '123', '123', '123'),
+('ahmed', 12, '123', '123', '123', '123', '123', '123'),
+('mahmoud', 13, '123', '123', '123123', '123', '123', '123'),
+('taha', 13, '123', '123123', '123', '123', '123', '123'),
+('mohammed', 12, '**', '**', '*', '*', '*', '*'),
+('ahmed', 11, 'asdas', 'sda', 'asd', 'asd', 'asd', 'asd'),
+('Ahmed', 11, 'egyptian', '123', '11st', '123', 'cairo', '.com');
 
 -- --------------------------------------------------------
 
@@ -68,7 +79,7 @@ INSERT INTO `food` (`RoomID`, `breakfast`, `lunch`, `dinner`) VALUES
 ('3', 0, 0, 0),
 ('4', 0, 0, 0),
 ('5', 0, 0, 0),
-('6', 0, 0, 0),
+('6', 1, 1, 1),
 ('7', 0, 0, 0),
 ('8', 0, 0, 0),
 ('9', 0, 0, 0),
@@ -118,7 +129,7 @@ INSERT INTO `rooms` (`roomID`, `roomType`, `isBooked`, `num_of_Days`, `owner`) V
 (8, 'VIP', 'false', 0, 'false'),
 (9, 'VIP', 'false', 0, 'false'),
 (10, 'VIP', 'false', 0, 'false'),
-(11, 'Normal', 'false', 0, 'false'),
+(11, 'Normal', 'true', 4, 'Ahmed'),
 (12, 'Normal', 'false', 0, 'false'),
 (13, 'Normal', 'false', 0, 'false'),
 (14, 'Normal', 'false', 0, 'false'),

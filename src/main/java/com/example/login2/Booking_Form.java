@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import javafx.scene.control.Alert;
 
 
-public class CheckIn extends HelloController{
+public class Booking_Form extends Login_Form {
     @FXML
     private TextField roomIDFld;
 
@@ -68,7 +68,7 @@ public class CheckIn extends HelloController{
 
     @FXML
     void Back_click(ActionEvent event) throws IOException {
-        HelloApplication x = new HelloApplication();
+        Main x = new Main();
         x.changeScene("gui.fxml", 589, 493);
         ;
 
@@ -94,7 +94,7 @@ public class CheckIn extends HelloController{
 
     @FXML
     void confirm_click(ActionEvent event) throws IOException {
-        customers x=new customers();
+        Customers x=new Customers();
 
         x.setName(nameFld.getText());
         x.setNationality(nationalityFld.getText());

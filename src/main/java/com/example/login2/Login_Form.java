@@ -12,13 +12,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import javafx.scene.control.Alert;
 
-public class HelloController {
+public class Login_Form {
     public static String username;
     public static String password;
     @FXML
@@ -38,35 +36,19 @@ public class HelloController {
     private static Stage stg;
 
 
+
+
+
     @FXML
     void click(ActionEvent event) throws IOException, SQLException {
         username = usernamefield.getText();
         password = passwordfield.getText();
-        DbConnect connectNOW = new DbConnect();
-        Connection connectDB = connectNOW.getConnect();
-        String verifyLogin = "SELECT count(1) FROM users WHERE username = '" + username + "' AND password = '" + password + "'";
-        try {
+        DbConnect.database_connect();
+       User user = new User();
+       boolean flag =user.verify_user_login(username,password);
+       if (flag ==false)
+           wrong.setText("Wrong username or password");
 
-            int counter = 0;
-            Statement statement = connectDB.createStatement();
-            ResultSet queryResult = statement.executeQuery(verifyLogin);
-            while (queryResult.next()) {
-
-                if (queryResult.getInt(1) == 1) {
-                    System.out.println(username + " just logged \n");
-                    HelloApplication m = new HelloApplication();
-                    m.changeScene("gui.fxml", 589, 493);
-                }
-                else {wrong.setText("Wrong username or password");
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Wrong username or password");
-                    alert.showAndWait();
-                }
-            }
-        } catch (Exception e) {
-        e.printStackTrace();
-        }
     }
 
     @FXML
@@ -78,6 +60,12 @@ public class HelloController {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.setScene(new Scene(pane, x, y));
         stg.getScene().setRoot(pane);
+    }
+    public static void pop_error(String status){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Error");
+        alert.setHeaderText(status);
+        alert.showAndWait();
     }
 }
 

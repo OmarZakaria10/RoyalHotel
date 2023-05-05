@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class ForAdmins extends HelloController{
+public class Adminstrators extends Login_Form {
     @FXML
     private Button Back;
 
@@ -42,7 +44,7 @@ public class ForAdmins extends HelloController{
     @FXML
     void delete_click(ActionEvent event) {
         try {
-            users y=new users();
+            User y=new User();
             y.setUsername(username1.getText());
             y.setPassword(password1.getText());
             y.setPrivilege(privilege1.getText());
@@ -71,7 +73,7 @@ public class ForAdmins extends HelloController{
             st3.setInt(1, id);
 
             int status = st3.executeUpdate();
-            HelloApplication x = new HelloApplication();
+            Main x = new Main();
             x.changeScene("gui.fxml", 589, 493);
 
         } catch (Exception e) {
@@ -87,42 +89,72 @@ public class ForAdmins extends HelloController{
 
     @FXML
     void Back_click(ActionEvent event) throws IOException {
-        HelloApplication x = new HelloApplication();
+        Main x = new Main();
         x.changeScene("gui.fxml", 589, 493);
         ;
 
+    }
+    public static boolean validatePassword(String password) {
+        if (password == null) {
+            return false;
+        }
+        int length = password.length();
+        if (length < 8 || length > 20) {
+            return false;
+        }
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialChar = false;
+        for (int i = 0; i < length; i++) {
+            char ch = password.charAt(i);
+            if (Character.isUpperCase(ch)) {
+                hasUppercase = true;
+            } else if (Character.isLowerCase(ch)) {
+                hasLowercase = true;
+            } else if (Character.isDigit(ch)) {
+                hasDigit = true;
+            } else if (ch == '!' || ch == '@' || ch == '#' || ch == '$' || ch == '%' || ch == '^' || ch == '&' || ch == '*') {
+                hasSpecialChar = true;
+            } else {
+                return false;
+            }
+        }
+        return hasUppercase && hasLowercase && hasDigit && hasSpecialChar;
     }
 
     @FXML
     void insert_click(ActionEvent event) {
         try {
-            users y=new users();
+            User y = new User();
             y.setUsername(username1.getText());
             y.setPassword(password1.getText());
             y.setPrivilege(privilege1.getText());
-            DbConnect connectNOW3 = new DbConnect();
-            Connection con3 = connectNOW3.getConnect();
-            PreparedStatement st3;
-            st3 = con3.prepareStatement("INSERT INTO `users`(`username`, `password`, `privilege`) VALUES (?,?,?)");
-            st3.setString(1, y.getUsername());
-            st3.setString(2, y.getPassword());
-            st3.setString(3, y.getPrivilege());
-            int status = st3.executeUpdate();
-            HelloApplication x = new HelloApplication();
-            x.changeScene("gui.fxml", 589, 493);
+            if (validatePassword(y.getPassword())) {
+                DbConnect connectNOW3 = new DbConnect();
+                Connection con3 = connectNOW3.getConnect();
+                PreparedStatement st3;
+                st3 = con3.prepareStatement("INSERT INTO `users`(`username`, `password`, `privilege`) VALUES (?,?,?)");
+                st3.setString(1, y.getUsername());
+                st3.setString(2, y.getPassword());
+                st3.setString(3, y.getPrivilege());
+                int status = st3.executeUpdate();
+                Main x = new Main();
+                x.changeScene("gui.fxml", 589, 493);
+            }
+            else Login_Form.pop_error("invalid password");
+            } catch(Exception e){
+                e.printStackTrace();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-
+            }
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Message");
+            alert.setHeaderText("The process");
+            alert.setContentText("Done.");
+            alert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Message");
-        alert.setHeaderText("The process");
-        alert.setContentText("Done.");
-        alert.showAndWait();
     }
 
-}
 
 
 

@@ -13,6 +13,8 @@ import java.util.logging.Logger;
  */
 public class DbConnect {
 
+
+
     private static String HOST = "127.0.0.1";
 
     private static int PORT = 3306;
@@ -22,6 +24,11 @@ public class DbConnect {
     private static String PASSWORD = "";
     private static Connection connection;
 
+    public static Connection connectDB;
+
+    public static void database_connect(){
+        connectDB=DbConnect.getConnect();
+    }
 
     public static Connection getConnect() {
         try {

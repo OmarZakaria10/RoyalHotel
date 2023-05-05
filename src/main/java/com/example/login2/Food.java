@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class foodcontroller extends HelloController {
+public class Food extends Login_Form {
     //private boolean bf=false,l=false,d=false;
     @FXML
     private CheckBox breakfast_checkbox;
@@ -51,7 +51,7 @@ public class foodcontroller extends HelloController {
             st.setInt(2, l);
             st.setInt(3, d);
             int status = st.executeUpdate();
-            HelloApplication m = new HelloApplication();
+            Main m = new Main();
             m.changeScene("gui.fxml", 589, 493);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Message");
@@ -64,7 +64,7 @@ public class foodcontroller extends HelloController {
     }
 
     public void back_to_previous() throws IOException {
-        HelloApplication m = new HelloApplication();
+        Main m = new Main();
         m.changeScene("gui.fxml", 589, 493);
     }
 }
