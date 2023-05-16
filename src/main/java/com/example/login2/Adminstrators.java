@@ -90,7 +90,7 @@ public class Adminstrators extends Login_Form {
     @FXML
     void Back_click(ActionEvent event) throws IOException {
         Main x = new Main();
-        x.changeScene("gui.fxml", 589, 493);
+        x.changeScene("gui.fxml", 589, 613);
         ;
 
     }

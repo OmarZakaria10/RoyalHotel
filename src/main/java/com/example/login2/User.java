@@ -41,7 +41,7 @@ public class User {
                 if (queryResult.getInt(1) == 1) {
                     System.out.println(username + " just logged \n");
                     Main m = new Main();
-                    m.changeScene("gui.fxml", 589, 493);
+                    m.changeScene("gui.fxml", 589, 613);
 
                 } else {
                     //wrong.setText("Wrong username or password");

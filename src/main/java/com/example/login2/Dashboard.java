@@ -28,6 +28,9 @@ public class Dashboard extends Login_Form implements Initializable {
     @FXML
     public Label welcome;
 
+    @FXML
+    private Button Emregency;
+
     Main x =new Main ();
 
     @FXML
@@ -72,6 +75,10 @@ public class Dashboard extends Login_Form implements Initializable {
     public void checkout_click(ActionEvent event) throws IOException {
 
         x.changeScene("checkout.fxml", 670, 409);
+    }
+    @FXML
+    void Emregency_click(ActionEvent event) {
+
     }
 
     @Override

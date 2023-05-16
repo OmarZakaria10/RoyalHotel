@@ -96,7 +96,7 @@ public class Checkout_Form extends Login_Form {
 
     public void back() throws IOException {
         Main m = new Main();
-        m.changeScene("gui.fxml", 589, 493);
+        m.changeScene("gui.fxml", 589, 613);
     }
 
 }
